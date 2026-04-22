@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto2025_III.BD.Datos
 {
-    public class AppDbContext : IdentityDbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Pais>  Paises { get; set; }
         public DbSet<TipoProvincia> TipoProvincias { get; set; }

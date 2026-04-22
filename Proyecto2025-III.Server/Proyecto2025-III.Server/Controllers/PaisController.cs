@@ -45,7 +45,7 @@ namespace Proyecto2025_III.Server.Controllers
             }
             if (lista.Count == 0)
             {
-                return Ok("Lista sin registros.");
+                return NotFound("Lista sin registros.");
             }
 
             return Ok(lista);

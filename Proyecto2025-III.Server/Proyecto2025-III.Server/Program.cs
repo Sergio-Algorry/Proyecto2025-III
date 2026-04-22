@@ -11,7 +11,7 @@ using Proyecto2025_III.Servicio.ServiciosHttp;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped(sp =>
-    new HttpClient { BaseAddress = new Uri("https://localhost:7206") });
+    new HttpClient { BaseAddress = new Uri("https://localhost:7073") });
 builder.Services.AddScoped<IHttpServicio, HttpServicio>();
 
 builder.Services.AddControllers();
@@ -49,7 +49,7 @@ builder.Services.AddIdentityCore<ApplicationUser>(options =>
     .AddSignInManager()
     .AddDefaultTokenProviders();
 
-//builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
+builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
 builder.Services.AddScoped<ITipoProvinciaRepositorio, TipoProvinciaRepositorio>();
 builder.Services.AddScoped<IPaisRepositorio, PaisRepositorio>();
