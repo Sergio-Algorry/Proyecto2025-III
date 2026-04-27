@@ -2,10 +2,15 @@
 @using Proyecto2025_III.Servicio.ServiciosHttp
 @using Proyecto2025_III.Server.Client.Shared
 @using Proyecto2025_III.Shared.DTO
+@rendermode InteractiveAuto
 @inject IHttpServicio http
 <h3>Lista de Paises</h3>
-<br />
-<a class="btn btn-primary" href="/paises/crear">Nuevo país</a>
+<AuthorizeView>
+    <Authorized>
+        <br />
+        <a class="btn btn-primary" href="/paises/crear">Nuevo país</a>
+    </Authorized>
+</AuthorizeView>
 <br>
 <table>
     <tr>
@@ -25,18 +30,22 @@
         {
             <tr>
                 <td>@pais.DatosPais</td>
-                <td>
-                    <a class="btn btn-primary" 
-                       href="/paises/editar/{pais.Id}">
-                       Editar
-                   </a>
-                </td>
-                <td>
-                    <button class="btn btn-danger"
-                            @onclick="() => Eliminar(pais)">
-                        Eliminar
-                    </button>
-                </td>
+                <AuthorizeView>
+                    <Authorized>
+                        <td>
+                            <a class="btn btn-primary"
+                                   href="/paises/editar/{pais.Id}">
+                                Editar
+                            </a>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger"
+                                    @onclick="() => Eliminar(pais)">
+                                Eliminar
+                            </button>
+                        </td>
+                    </Authorized>
+                </AuthorizeView>
             </tr>
         }
     }

@@ -1,13 +1,16 @@
 ﻿@page "/paises/crear"
-@rendermode InteractiveAuto
+@using Microsoft.AspNetCore.Authorization
 @using Proyecto2025_III.Servicio.ServiciosHttp
 @using Proyecto2025_III.Shared.DTO
+@rendermode InteractiveAuto
+@attribute [Authorize]
 @inject IHttpServicio http
 @inject NavigationManager navHttp
 
 <h3>Crear Nuevo Pais</h3>
 
-<EditForm Model="pais" OnValidSubmit="Grabar">
+@* <EditForm Model="pais"  OnValidSubmit="Grabar"> *@
+<EditForm Model="pais" OnValidSubmit="Grabar" FormName="CrearPaisForm">
     <DataAnnotationsValidator />
     <div class="form-group">
         <label>Alpha3Code</label>
@@ -46,9 +49,6 @@
 </EditForm>
 <br />
 <p>@Mensaje</p>
-
-
-
 
 @code {
     private PaisDTO pais = new PaisDTO();
