@@ -5,12 +5,14 @@ namespace Proyecto2025_III.Servicio.Seguridad;
 
 public class ServicioSeguridad : IServicioSeguridad
 {
-    private readonly AppDbContext _context;
 
-    public ServicioSeguridad(AppDomain
-    {
+    //public ServicioSeguridad(AppDbContext<ApplicationUser> context,
+    //                         UserManager<ApplicationUser> userManager, 
+    //                         IHttpContextAccessor httpContextAccessor, 
+    //                         IAuthorizationService authorizationService
+    //{
         
-    }
+    //}
     public Task<ResultadoOperacionSeguridad> HacerAdmin(string email)
     {
         throw new NotImplementedException();
